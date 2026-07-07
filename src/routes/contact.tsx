@@ -170,7 +170,7 @@ function Contact() {
                 </InfoRow>
                 <InfoRow icon={Linkedin}>
                   <a
-                    href="https://www.linkedin.com/"
+                    href="https://www.linkedin.com/company/struqtonstructural/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover-underline"
@@ -190,14 +190,6 @@ function Contact() {
               </div>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-sm border border-border">
-              <iframe
-                title="Struqton Structural office location — Harare"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=31.020%2C-17.845%2C31.070%2C-17.815&layer=mapnik"
-                className="h-72 w-full"
-                loading="lazy"
-              />
-            </div>
           </aside>
         </div>
       </section>

@@ -12,34 +12,50 @@ import valueEngineering from "@/assets/partners/value-engineering.png";
 import zimplats from "@/assets/partners/zimplats.jpg";
 import zpc from "@/assets/partners/zpc.png";
 
-const partners = [
-  africaUniversity,
-  bancabc,
-  crownAgents,
-  dallaglio,
-  glytime,
-  oldMutual,
-  pumpSystemAfrica,
-  unicef,
-  valueEngineering,
-  zimplats,
-  zpc,
+const topRow = [
+  { src: unicef, alt: "UNICEF" },
+  { src: zpc, alt: "Zimbabwe Power Company" },
+  { src: bancabc, alt: "BancABC" },
+  { src: oldMutual, alt: "Old Mutual" },
+  { src: africaUniversity, alt: "Africa University" },
+  { src: crownAgents, alt: "Crown Agents" },
+];
+
+const bottomRow = [
+  { src: dallaglio, alt: "Dallaglio" },
+  { src: glytime, alt: "Glytime" },
+  { src: pumpSystemAfrica, alt: "Pump System Africa" },
+  { src: valueEngineering, alt: "Value Engineering" },
+  { src: zimplats, alt: "Zimplats" },
 ];
 
 export function PartnerCarousel() {
-  // duplicate array for seamless infinite scroll
-  const all = [...partners, ...partners];
+  // Duplicate arrays for seamless infinite scroll
+  const topItems = [...topRow, ...topRow];
+  const bottomItems = [...bottomRow, ...bottomRow];
+
   return (
-    <div className="partner-carousel overflow-hidden py-6" aria-label="Trusted partners">
-      <div className="inner flex items-center gap-8 animate-scroll">
-        {all.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt="Partner logo"
-            className="h-24 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-          />
-        ))}
+    <div className="partner-marquee-wrapper" aria-label="Trusted partners">
+      {/* Top row — scrolls left */}
+      <div className="partner-marquee-track">
+        <div className="partner-marquee-inner scroll-left">
+          {topItems.map((partner, i) => (
+            <div className="partner-card" key={`top-${i}`}>
+              <img src={partner.src} alt={partner.alt} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom row — scrolls right */}
+      <div className="partner-marquee-track">
+        <div className="partner-marquee-inner scroll-right">
+          {bottomItems.map((partner, i) => (
+            <div className="partner-card" key={`bottom-${i}`}>
+              <img src={partner.src} alt={partner.alt} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

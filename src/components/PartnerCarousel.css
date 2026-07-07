@@ -1,15 +1,116 @@
-/* Partner carousel scrolling animation */
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+/* ── Partner Marquee ── */
 
-.partner-carousel .inner {
+.partner-marquee-wrapper {
   display: flex;
-  gap: 2rem;
-  animation: scroll 20s linear infinite;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow: hidden;
+  padding: 1rem 0;
 }
 
-.partner-carousel .inner:hover {
+/* Each row is an overflow-hidden track */
+.partner-marquee-track {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Inner flex strip that slides */
+.partner-marquee-inner {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Scroll left (top row) */
+.partner-marquee-inner.scroll-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+/* Scroll right (bottom row) */
+.partner-marquee-inner.scroll-right {
+  animation: marquee-right 25s linear infinite;
+}
+
+/* Pause on hover */
+.partner-marquee-track:hover .partner-marquee-inner {
   animation-play-state: paused;
+}
+
+/* ── Card ── */
+.partner-card {
+  flex-shrink: 0;
+  width: 220px;
+  height: 140px;
+  background-color: #172a46;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.partner-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* ── Keyframes ── */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ── Responsive card sizing ── */
+@media (max-width: 768px) {
+  .partner-card {
+    width: 170px;
+    height: 110px;
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-card {
+    width: 140px;
+    height: 90px;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+  }
 }
