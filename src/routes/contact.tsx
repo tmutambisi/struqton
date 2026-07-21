@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
-import { Mail, MapPin, Phone, Clock, Linkedin, Check } from "lucide-react";
+import { Mail, MapPin, Phone, Clock, Linkedin, Check, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+// ─── EmailJS credentials ─────────────────────────────────────────────────────
+const EMAILJS_SERVICE_ID = "service_3wqbjfo";
+const EMAILJS_TEMPLATE_ID = "template_dvstpwt";
+const EMAILJS_PUBLIC_KEY = "LWey1HkTdySLqeOvb";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,15 +47,18 @@ const schema = z.object({
 });
 
 function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
     const data = Object.fromEntries(fd) as Record<string, string>;
+
     const parsed = schema.safeParse(data);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -57,13 +66,28 @@ function Contact() {
       setErrors(errs);
       return;
     }
+
     setErrors({});
+    setSendError(null);
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
       setSent(true);
       form.reset();
-    }, 600);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setSendError(
+        "Sorry, we couldn't send your message right now. Please try emailing us directly at info@struqton.com."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -94,14 +118,14 @@ function Contact() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSent(false)}
+                  onClick={() => { setSent(false); setSendError(null); }}
                   className="mt-6 text-sm font-semibold text-ink hover-underline"
                 >
                   Send another
                 </button>
               </div>
             ) : (
-              <form onSubmit={onSubmit} noValidate className="grid gap-5">
+              <form ref={formRef} onSubmit={onSubmit} noValidate className="grid gap-5">
                 <Field label="Full name" name="name" error={errors.name} required />
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Email" name="email" type="email" error={errors.email} required />
@@ -137,6 +161,15 @@ function Contact() {
                   />
                   {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
+
+                {/* Send error banner */}
+                {sendError && (
+                  <div className="flex items-start gap-3 rounded-sm border border-destructive/30 bg-destructive/5 p-4">
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
+                    <p className="text-sm text-destructive">{sendError}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={submitting}
@@ -157,6 +190,7 @@ function Contact() {
               <ul className="mt-6 space-y-5 text-sm text-ink-soft">
                 <InfoRow icon={MapPin}>
                   Struqton Structural (Pvt) Ltd<br />
+                  Shop 120-123, Longcheng Plaza, Mutley Bend, Belvedere,
                   Harare, Zimbabwe
                 </InfoRow>
                 <InfoRow icon={Mail}>
@@ -189,7 +223,6 @@ function Contact() {
                 </ul>
               </div>
             </div>
-
           </aside>
         </div>
       </section>

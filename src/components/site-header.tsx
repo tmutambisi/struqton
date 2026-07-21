@@ -37,7 +37,7 @@ export function SiteHeader() {
           <img
             src={logoImg}
             alt="Struqton Structural"
-            className="h-18 w-auto object-contain md:h-28"
+            className="h-20 w-auto object-contain md:h-30"
           />
         </Link>
 

@@ -7,6 +7,70 @@ import renderImg2 from "@/assets/project-render-2.jpg";
 import civilImg from "@/assets/project-civil.jpg";
 import miningImg from "@/assets/project-mining.jpg";
 
+// ── Glytime Foods Factory ──────────────────────────────────────────────────
+import glytime1 from "@/assets/projects/Glytime Foods Factory/MVIMG_20240212_140814.jpg";
+import glytime2 from "@/assets/projects/Glytime Foods Factory/MVIMG_20240528_151541.jpg";
+import glytime3 from "@/assets/projects/Glytime Foods Factory/MVIMG_20240528_154116.jpg";
+import glytime4 from "@/assets/projects/Glytime Foods Factory/MVIMG_20240616_164312.jpg";
+import glytime5 from "@/assets/projects/Glytime Foods Factory/IMG_20240609_144900.jpg";
+import glytime6 from "@/assets/projects/Glytime Foods Factory/VID_20240607_164938.jpg";
+import glytime7 from "@/assets/projects/Glytime Foods Factory/VID_20240609_123059.jpg";
+import glytime8 from "@/assets/projects/Glytime Foods Factory/VID_20240616_164318.jpg";
+
+// ── House Vhiriri ──────────────────────────────────────────────────────────
+import vhiriri1 from "@/assets/projects/House Vhiriri/IMG-20260411-WA0551.jpg";
+import vhiriri2 from "@/assets/projects/House Vhiriri/IMG-20260416-WA0095.jpg";
+import vhiriri3 from "@/assets/projects/House Vhiriri/IMG-20260420-WA0007.jpg";
+import vhiriri4 from "@/assets/projects/House Vhiriri/MVIMG_20250727_173942.jpg";
+import vhiriri5 from "@/assets/projects/House Vhiriri/MVIMG_20260323_145113.jpg";
+import vhiriri6 from "@/assets/projects/House Vhiriri/MVIMG_20260323_145126.jpg";
+
+// ── Junction Adventist High Dining Hall ───────────────────────────────────
+import junction1 from "@/assets/projects/Junction Adventist High Dining Hall/IMG_20260510_102017.jpg";
+import junction2 from "@/assets/projects/Junction Adventist High Dining Hall/IMG_20260514_172646.jpg";
+import junction3 from "@/assets/projects/Junction Adventist High Dining Hall/IMG_20260514_172718.jpg";
+import junction4 from "@/assets/projects/Junction Adventist High Dining Hall/IMG_20260519_111948.jpg";
+import junction5 from "@/assets/projects/Junction Adventist High Dining Hall/MVIMG_20260223_181809.jpg";
+
+// ── Marisa ────────────────────────────────────────────────────────────────
+import marisa1 from "@/assets/projects/Marisa/IMG_20250127_134708.jpg";
+import marisa2 from "@/assets/projects/Marisa/IMG_20250127_134732.jpg";
+import marisa3 from "@/assets/projects/Marisa/IMG_20250406_150628.jpg";
+import marisa4 from "@/assets/projects/Marisa/IMG_20250601_173045.jpg";
+import marisa5 from "@/assets/projects/Marisa/IMG_20260409_143655.jpg";
+import marisa6 from "@/assets/projects/Marisa/IMG_20260520_145500.jpg";
+import marisa7 from "@/assets/projects/Marisa/MVIMG_20250709_151658.jpg";
+import marisa8 from "@/assets/projects/Marisa/MVIMG_20250709_151703.jpg";
+import marisa9 from "@/assets/projects/Marisa/MVIMG_20250820_123141.jpg";
+import marisa10 from "@/assets/projects/Marisa/MVIMG_20250820_123600.jpg";
+import marisa11 from "@/assets/projects/Marisa/MVIMG_20250820_130544.jpg";
+import marisa12 from "@/assets/projects/Marisa/MVIMG_20260222_134243.jpg";
+
+// ── Musiwa House Lot 46 ───────────────────────────────────────────────────
+import musiwa1 from "@/assets/projects/Musiwa House Lot 46/IMG_20260512_174854.jpg";
+import musiwa2 from "@/assets/projects/Musiwa House Lot 46/IMG_20260524_112016.jpg";
+import musiwa3 from "@/assets/projects/Musiwa House Lot 46/MVIMG_20251215_114718.jpg";
+import musiwa4 from "@/assets/projects/Musiwa House Lot 46/MVIMG_20260223_115059.jpg";
+import musiwa5 from "@/assets/projects/Musiwa House Lot 46/VID_20260208_154838.jpg";
+
+// ── Sena ──────────────────────────────────────────────────────────────────
+import sena1 from "@/assets/projects/Sena/IMG_20260429_150814.jpg";
+import sena2 from "@/assets/projects/Sena/IMG_20260505_144008.jpg";
+import sena3 from "@/assets/projects/Sena/MVIMG_20251009_154513.jpg";
+import sena4 from "@/assets/projects/Sena/MVIMG_20251009_155121.jpg";
+import sena5 from "@/assets/projects/Sena/MVIMG_20251009_155147.jpg";
+import sena6 from "@/assets/projects/Sena/MVIMG_20251009_155216.jpg";
+import sena7 from "@/assets/projects/Sena/MVIMG_20251121_144735.jpg";
+import sena8 from "@/assets/projects/Sena/MVIMG_20260313_174543.jpg";
+
+// ── Mukucha ───────────────────────────────────────────────────────────────
+import mukucha1 from "@/assets/projects/Mukucha/IMG_20250525_104422.jpg";
+import mukucha2 from "@/assets/projects/Mukucha/IMG_20250525_104551.jpg";
+import mukucha3 from "@/assets/projects/Mukucha/IMG_20250529_161834.jpg";
+import mukucha4 from "@/assets/projects/Mukucha/MVIMG_20250909_153719.jpg";
+import mukucha5 from "@/assets/projects/Mukucha/MVIMG_20250909_153745.jpg";
+import mukucha6 from "@/assets/projects/Mukucha/MVIMG_20250926_144914.jpg";
+
 export type ProjectStatus = "completed" | "in-progress" | "design";
 export type ProjectSector =
   | "Commercial"
@@ -26,6 +90,7 @@ export type Project = {
   status: ProjectStatus;
   sector: ProjectSector;
   image: string;
+  gallery?: string[];
   summary: string;
   involvement: string[];
   timeline?: string;
@@ -35,7 +100,7 @@ export type Project = {
 
 export const statusLabels: Record<ProjectStatus, string> = {
   completed: "Completed",
-  "in-progress": "In Progress",
+  "in-progress": "Ongoing Project",
   design: "3D & Design",
 };
 
@@ -48,7 +113,8 @@ export const projects: Project[] = [
     location: "Sunway City, Harare",
     status: "in-progress",
     sector: "Industrial",
-    image: industrialImg,
+    image: glytime1,
+    gallery: [glytime1, glytime2, glytime3, glytime4, glytime5, glytime6, glytime7, glytime8],
     summary:
       "3,313 m² warehouse, 7,000 m² of paved outdoor yard and a full processing machinery line for a health-food manufacturer.",
     involvement: ["Construction", "Structural engineering", "Machinery line integration"],
@@ -56,8 +122,98 @@ export const projects: Project[] = [
     size: "3,313 m² warehouse · 7,000 m² yard",
   },
   {
-    slug: "aquabridge-warehouse",
+    slug: "sena-residential-acturus",
     n: 2,
+    title: "Residential House — Acturus",
+    client: "T. Sena Family Trust",
+    location: "Cromlet, Acturus",
+    status: "in-progress",
+    sector: "Residential",
+    image: sena1,
+    gallery: [sena1, sena2, sena3, sena4, sena5, sena6, sena7, sena8],
+    summary:
+      "Construction of a 500 m² floor-area family home, currently in foundation and superstructure works.",
+    involvement: ["Construction", "Structural engineering"],
+    size: "500 m² floor area",
+  },
+  {
+    slug: "vhiriri-double-residential",
+    n: 3,
+    title: "Double Residential House — Horgety Hill",
+    client: "Mr and Mrs Vhiriri",
+    location: "Horgety Hill, Harare",
+    status: "in-progress",
+    sector: "Residential",
+    image: vhiriri1,
+    gallery: [vhiriri1, vhiriri2, vhiriri3, vhiriri4, vhiriri5, vhiriri6],
+    summary:
+      "Construction of a 961 m² double-storey family residence, designed and engineered in-house.",
+    involvement: ["Architectural design", "Structural engineering", "Construction"],
+    size: "961 m²",
+  },
+  {
+    slug: "marisa-double-residential",
+    n: 4,
+    title: "Double Residential House — Marisa",
+    client: "Mr Marisa",
+    location: "Harare",
+    status: "design",
+    sector: "Residential",
+    image: marisa1,
+    gallery: [marisa1, marisa2, marisa3, marisa4, marisa5, marisa6, marisa7, marisa8, marisa9, marisa10, marisa11, marisa12],
+    summary:
+      "A 1,296 m² double-storey residence at architectural and structural design stage, with photoreal 3D visualisation.",
+    involvement: ["Architectural design", "Structural engineering", "Construction"],
+    size: "1,296 m²",
+  },
+  {
+    slug: "mukucha-knowe-norton",
+    n: 5,
+    title: "Double-Storey Residential — Knowe",
+    client: "Mrs Mukucha",
+    location: "Knowe, Norton",
+    status: "in-progress",
+    sector: "Residential",
+    image: mukucha1,
+    gallery: [mukucha1, mukucha2, mukucha3, mukucha4, mukucha5, mukucha6],
+    summary:
+      "An 850 m² double-storey home with paved driveway and carports, developed from 3D concept through structural design.",
+    involvement: ["Structural design", "Architectural design", "Construction"],
+    size: "850 m²",
+  },
+  {
+    slug: "junction-adventist-dining-hall",
+    n: 6,
+    title: "Junction Adventist High Dining Hall",
+    client: "Junction Adventist High School",
+    location: "Zimbabwe",
+    status: "in-progress",
+    sector: "Commercial",
+    image: junction1,
+    gallery: [junction1, junction2, junction3, junction4, junction5],
+    summary:
+      "Design and construction of a new dining hall facility for Junction Adventist High School, currently under structural and finishing works.",
+    involvement: ["Construction", "Structural engineering", "Architectural design"],
+  },
+  {
+    slug: "musiwa-house-lot-46",
+    n: 7,
+    title: "Musiwa House — Lot 46",
+    client: "Mr & Mrs Musiwa",
+    location: "Harare, Zimbabwe",
+    status: "in-progress",
+    sector: "Residential",
+    image: musiwa1,
+    gallery: [musiwa1, musiwa2, musiwa3, musiwa4, musiwa5],
+    summary:
+      "Construction of a contemporary family residence on Lot 46, currently progressing through structural and superstructure works.",
+    involvement: ["Construction", "Structural engineering"],
+  },
+
+  /* ─── Projects Pending Site Images (Commented Out) ──────────────────────────
+  {
+    slug: "aquabridge-warehouse",
+    n: 8,
     title: "Aquabridge Warehouse",
     client: "H.T. Chitate",
     location: "Retreat Park, Harare",
@@ -72,7 +228,7 @@ export const projects: Project[] = [
   },
   {
     slug: "global-platinum-refurbishment",
-    n: 3,
+    n: 9,
     title: "Warehouse & Office Refurbishment",
     client: "Global Platinum Resources",
     location: "Selous, Zimbabwe",
@@ -86,7 +242,7 @@ export const projects: Project[] = [
   },
   {
     slug: "maple-ridge-classroom-block",
-    n: 4,
+    n: 10,
     title: "Double-Storey Classroom Block",
     client: "Maple Ridge Academy",
     location: "Mvurwi, Zimbabwe",
@@ -100,7 +256,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mathendele-water-pipeline",
-    n: 5,
+    n: 11,
     title: "Mathendele Water Pipeline",
     client: "Plumtree Town Council",
     location: "Mathendele Suburb, Plumtree",
@@ -115,7 +271,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bancabc-housing-drainage",
-    n: 6,
+    n: 12,
     title: "BancABC Housing Development",
     client: "BancABC",
     location: "Harare",
@@ -129,7 +285,7 @@ export const projects: Project[] = [
   },
   {
     slug: "value-engineering-overhead-crane",
-    n: 7,
+    n: 13,
     title: "Overhead Crane Rail & Warehouse Extension",
     client: "Value Engineering",
     location: "Harare",
@@ -143,7 +299,7 @@ export const projects: Project[] = [
   },
   {
     slug: "zimplats-portal-4-shaft",
-    n: 8,
+    n: 14,
     title: "Portal 4 Inclined Shaft",
     client: "Zimplats (Implats Group)",
     location: "Zimbabwe",
@@ -161,7 +317,7 @@ export const projects: Project[] = [
   },
   {
     slug: "fossil-road-drainage",
-    n: 9,
+    n: 15,
     title: "Harare–Chirundu Road Drainage & Culverts",
     client: "Fossil Contracting",
     location: "Harare",
@@ -175,7 +331,7 @@ export const projects: Project[] = [
   },
   {
     slug: "globetrotter-farm-road",
-    n: 10,
+    n: 16,
     title: "Globetrotter Farm Road & Stormwater",
     client: "Frogmerge Construction",
     location: "Goodhope, Harare",
@@ -189,7 +345,7 @@ export const projects: Project[] = [
   },
   {
     slug: "the-chase-cluster-development",
-    n: 11,
+    n: 17,
     title: "The Chase Cluster Development",
     client: "Firmcare Construction",
     location: "136 The Chase, Mt Pleasant, Harare",
@@ -203,7 +359,7 @@ export const projects: Project[] = [
   },
   {
     slug: "pickstone-road-and-bridge",
-    n: 12,
+    n: 18,
     title: "Pickstone Mine Road & Bridge",
     client: "Dallaglio Investments (Pickstone Mine)",
     location: "Zimbabwe",
@@ -217,7 +373,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bindura-roadside-works",
-    n: 13,
+    n: 19,
     title: "Roadside Drainage, Fencing & Paving",
     client: "Bindura Town Council",
     location: "Bindura, Zimbabwe",
@@ -232,7 +388,7 @@ export const projects: Project[] = [
   },
   {
     slug: "chipinge-solar-boreholes",
-    n: 14,
+    n: 20,
     title: "Chipinge Council Solar Boreholes",
     client: "Chipinge Town Council",
     location: "Chipinge, Zimbabwe",
@@ -245,7 +401,7 @@ export const projects: Project[] = [
   },
   {
     slug: "africa-university-solar",
-    n: 15,
+    n: 21,
     title: "Africa University Solar Project",
     client: "Africa University",
     location: "Mutare, Zimbabwe",
@@ -260,7 +416,7 @@ export const projects: Project[] = [
   },
   {
     slug: "old-mutual-solar",
-    n: 16,
+    n: 22,
     title: "Old Mutual Solar & Storage Plant",
     client: "Old Mutual",
     location: "Zimbabwe",
@@ -276,7 +432,7 @@ export const projects: Project[] = [
   },
   {
     slug: "slowgrad-head-office",
-    n: 17,
+    n: 23,
     title: "Slowgrad Engineering Head Office",
     client: "Slowgrad Engineering (Pvt) Ltd",
     location: "Sandton Industrial Park, Zvimba",
@@ -290,64 +446,8 @@ export const projects: Project[] = [
     size: "3,500 m² building · 1,500 m² paved",
   },
   {
-    slug: "sena-residential-acturus",
-    n: 18,
-    title: "Residential House — Acturus",
-    client: "T. Sena Family Trust",
-    location: "Cromlet, Acturus",
-    status: "in-progress",
-    sector: "Residential",
-    image: residentialImg,
-    summary:
-      "Construction of a 500 m² floor-area family home, currently in foundation and superstructure works.",
-    involvement: ["Construction", "Structural engineering"],
-    size: "500 m² floor area",
-  },
-  {
-    slug: "vhiriri-double-residential",
-    n: 19,
-    title: "Double Residential House — Horgety Hill",
-    client: "Mr and Mrs Vhiriri",
-    location: "Horgety Hill, Harare",
-    status: "in-progress",
-    sector: "Residential",
-    image: renderImg,
-    summary:
-      "Construction of a 961 m² double-storey family residence, designed and engineered in-house.",
-    involvement: ["Architectural design", "Structural engineering", "Construction"],
-    size: "961 m²",
-  },
-  {
-    slug: "marisa-double-residential",
-    n: 20,
-    title: "Double Residential House — Marisa",
-    client: "Mr Marisa",
-    location: "Harare",
-    status: "design",
-    sector: "Residential",
-    image: renderImg,
-    summary:
-      "A 1,296 m² double-storey residence at architectural and structural design stage, with photoreal 3D visualisation.",
-    involvement: ["Architectural design", "Structural engineering", "Construction"],
-    size: "1,296 m²",
-  },
-  {
-    slug: "mukucha-knowe-norton",
-    n: 21,
-    title: "Double-Storey Residential — Knowe",
-    client: "Mrs Mukucha",
-    location: "Knowe, Norton",
-    status: "design",
-    sector: "Residential",
-    image: renderImg2,
-    summary:
-      "An 850 m² double-storey home with paved driveway and carports, developed from 3D concept through structural design.",
-    involvement: ["Structural design", "Architectural design", "Construction"],
-    size: "850 m²",
-  },
-  {
     slug: "zpc-kariba-duplexes",
-    n: 22,
+    n: 24,
     title: "8-Family Duplexes, Kariba Heights",
     client: "Zimbabwe Power Company",
     location: "5 Cactus, Kariba Heights",
@@ -363,7 +463,7 @@ export const projects: Project[] = [
   },
   {
     slug: "adventist-university-mozambique",
-    n: 23,
+    n: 25,
     title: "Adventist University Consultancy",
     client: "Adventist University of Mozambique",
     location: "Mozambique",
@@ -378,7 +478,7 @@ export const projects: Project[] = [
   },
   {
     slug: "undp-wanezi-tanks",
-    n: 24,
+    n: 26,
     title: "Wanezi & Gororo Irrigation Tanks",
     client: "United Nations Development Programme (UNDP)",
     location: "Wanezi & Gororo, Zimbabwe",
@@ -391,7 +491,7 @@ export const projects: Project[] = [
   },
   {
     slug: "crown-agents-wash-rehab",
-    n: 25,
+    n: 27,
     title: "Urgent Water Supply & Sanitation Rehab",
     client: "Crown Agents Limited",
     location: "Zimbabwe",
@@ -405,7 +505,7 @@ export const projects: Project[] = [
   },
   {
     slug: "crop-institute-irrigation",
-    n: 26,
+    n: 28,
     title: "Crop Institute Irrigation Rehabilitation",
     client: "Ministry of Agriculture",
     location: "Zimbabwe",
@@ -419,7 +519,7 @@ export const projects: Project[] = [
   },
   {
     slug: "gmb-reservoirs",
-    n: 27,
+    n: 29,
     title: "GMB Firefighting & 13 Water Reservoirs",
     client: "GMB & SGE",
     location: "Silo sites, Zimbabwe",
@@ -432,6 +532,7 @@ export const projects: Project[] = [
     timeline: "Feb – Aug 2018",
     cost: "USD 600,000",
   },
+  ─── End of Commented Out Projects ─── */
 ];
 
 export function getProject(slug: string) {

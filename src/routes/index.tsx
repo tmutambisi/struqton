@@ -40,12 +40,7 @@ const clients = [
   "Value Engineering", "Glytime Foods", "Zimplats", "Dallaglio",
 ];
 
-const featured = [
-  projects.find((p) => p.slug === "slowgrad-head-office")!,
-  projects.find((p) => p.slug === "glytime-foods-factory")!,
-  projects.find((p) => p.slug === "old-mutual-solar")!,
-  projects.find((p) => p.slug === "zimplats-portal-4-shaft")!,
-];
+const featured = projects.slice(0, 4);
 
 function Home() {
   return (
@@ -79,7 +74,7 @@ function Home() {
               to="/projects"
               className="inline-flex h-12 items-center gap-2 rounded-sm bg-background px-6 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
             >
-              Explore 27 projects <ArrowRight className="h-4 w-4" />
+              Explore featured projects <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/contact"
@@ -91,7 +86,7 @@ function Home() {
 
           <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-6 border-t border-background/20 pt-8 text-background sm:grid-cols-4">
             {[
-              { v: "27", l: "Projects to date" },
+              { v: "7+", l: "Featured build sites" },
               { v: "USD 3.2M", l: "Largest active build" },
               { v: "6", l: "Sectors served" },
               { v: "2018", l: "Formally registered" },
