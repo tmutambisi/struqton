@@ -18,8 +18,8 @@ import glytime7 from "@/assets/projects/Glytime Foods Factory/VID_20240609_12305
 import glytime8 from "@/assets/projects/Glytime Foods Factory/VID_20240616_164318.jpg";
 
 // ── House Vhiriri ──────────────────────────────────────────────────────────
-import vhiriri1 from "@/assets/projects/House Vhiriri/IMG-20260411-WA0551.jpg";
-import vhiriri2 from "@/assets/projects/House Vhiriri/IMG-20260416-WA0095.jpg";
+import vhiriri2 from "@/assets/projects/House Vhiriri/IMG-20260411-WA0551.jpg";
+import vhiriri1 from "@/assets/projects/House Vhiriri/IMG-20260416-WA0095.jpg";
 import vhiriri3 from "@/assets/projects/House Vhiriri/IMG-20260420-WA0007.jpg";
 import vhiriri4 from "@/assets/projects/House Vhiriri/MVIMG_20250727_173942.jpg";
 import vhiriri5 from "@/assets/projects/House Vhiriri/MVIMG_20260323_145113.jpg";
@@ -71,6 +71,16 @@ import mukucha4 from "@/assets/projects/Mukucha/MVIMG_20250909_153719.jpg";
 import mukucha5 from "@/assets/projects/Mukucha/MVIMG_20250909_153745.jpg";
 import mukucha6 from "@/assets/projects/Mukucha/MVIMG_20250926_144914.jpg";
 
+// ----- Value Engineering ---------------------------------------------------
+import valEng1 from "@/assets/projects/Value Engineering/IMG_20250122_135506.jpg";
+import ValEng2 from "@/assets/projects/Value Engineering/IMG_20250417_192559.jpg";
+import ValEng3 from "@/assets/projects/Value Engineering/IMG_20250418_184516.jpg";
+import ValEng4 from "@/assets/projects/Value Engineering/MVIMG_20240424_102034.jpg";
+import ValEng5 from "@/assets/projects/Value Engineering/MVIMG_20240426_101954.jpg";
+import ValEng6 from "@/assets/projects/Value Engineering/VID_20240424_101950.jpg";
+import ValEng7 from "@/assets/projects/Value Engineering/VID_20240426_095621.jpg";
+import ValEng8 from "@/assets/projects/Value Engineering/VID_20240426_100538.jpg";
+
 export type ProjectStatus = "completed" | "in-progress" | "design";
 export type ProjectSector =
   | "Commercial"
@@ -113,7 +123,7 @@ export const projects: Project[] = [
     location: "Sunway City, Harare",
     status: "in-progress",
     sector: "Industrial",
-    image: glytime1,
+    image: glytime8,
     gallery: [glytime1, glytime2, glytime3, glytime4, glytime5, glytime6, glytime7, glytime8],
     summary:
       "3,313 m² warehouse, 7,000 m² of paved outdoor yard and a full processing machinery line for a health-food manufacturer.",
@@ -159,7 +169,7 @@ export const projects: Project[] = [
     location: "Harare",
     status: "in-progress",
     sector: "Residential",
-    image: marisa1,
+    image: marisa12,
     gallery: [marisa1, marisa2, marisa3, marisa4, marisa5, marisa6, marisa7, marisa8, marisa9, marisa10, marisa11, marisa12],
     summary:
       "A 1,296 m² double-storey residence at architectural and structural design stage, with photoreal 3D visualisation.",
