@@ -157,7 +157,7 @@ export const projects: Project[] = [
     title: "Double Residential House — Marisa",
     client: "Mr Marisa",
     location: "Harare",
-    status: "design",
+    status: "in-progress",
     sector: "Residential",
     image: marisa1,
     gallery: [marisa1, marisa2, marisa3, marisa4, marisa5, marisa6, marisa7, marisa8, marisa9, marisa10, marisa11, marisa12],

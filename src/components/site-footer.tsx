@@ -39,7 +39,8 @@ export function SiteFooter() {
             <li>Commercial</li>
             <li>Industrial</li>
             <li>Residential</li>
-            <li>Mining · Energy</li>
+            <li>Mining</li>
+            <li>Energy</li>
             <li>Infrastructure</li>
           </ul>
         </div>
@@ -52,7 +53,7 @@ export function SiteFooter() {
               <a href="mailto:info@struqton.com" className="hover-underline text-white/80 hover:text-white">info@struqton.com</a>
             </p>
             <p>
-              <a href="tel:+263 774 751 861" className="hover-underline text-white/80 hover:text-white">+263263 242 711 599</a>
+              <a href="tel:+263 774 751 861" className="hover-underline text-white/80 hover:text-white">+263 242 711 599</a>
             </p>
           </address>
         </div>
