@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
+import { SITE_URL, absoluteUrl, DEFAULT_OG_IMAGE, ORGANIZATION_SCHEMA } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -74,6 +75,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Struqton is an engineering and construction firm delivering landmark commercial, industrial and residential projects with structural precision.",
       },
+      { name: "keywords", content: "Zimbabwe engineering contractor, civil engineering Harare, structural engineering Zimbabwe, building contractor Zimbabwe, CIFOZ Category B" },
+      { property: "og:url", content: SITE_URL },
       { property: "og:title", content: "Struqton — Engineering & Construction" },
       {
         property: "og:description",
@@ -81,12 +84,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Landmark commercial, industrial and residential engineering. Grounded in craft. Delivered with precision.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Struqton" },
+      { property: "og:site_name", content: "Struqton Structural" },
+      { property: "og:locale", content: "en_ZW" },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "canonical", href: SITE_URL },
     ],
   }),
   shellComponent: RootShell,
@@ -100,6 +107,12 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(ORGANIZATION_SCHEMA),
+          }}
+        />
       </head>
       <body>
         {children}

@@ -8,24 +8,31 @@ import {
   type ProjectStatus,
   type ProjectSector,
 } from "@/lib/projects";
+import { absoluteUrl, pageTitle, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects & Gallery — Struqton Structural" },
+      { title: pageTitle("Projects & Gallery") },
       {
         name: "description",
         content:
           "Featured building, civil, industrial, energy and residential projects delivered by Struqton Structural — ongoing projects, completed sites, and 3D designs.",
       },
+      { name: "keywords", content: "construction portfolio Zimbabwe, engineering project gallery, Harare building projects" },
       { property: "og:title", content: "Projects & Gallery — Struqton Structural" },
       {
         property: "og:description",
         content:
           "Featured ongoing projects, completed sites and 3D designs with real site photo galleries.",
       },
+      { property: "og:url", content: absoluteUrl("/projects") },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+      { property: "og:locale", content: "en_ZW" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/projects") }],
   }),
   component: ProjectsIndex,
 });

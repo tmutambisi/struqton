@@ -1,24 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, HardHat, Compass, Wrench, Sun, Pickaxe, Layers, Wheat, Truck } from "lucide-react";
 import servicesImg from "@/assets/services.jpg";
+import { absoluteUrl, pageTitle, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Struqton Structural" },
+      { title: pageTitle("Services") },
       {
         name: "description",
         content:
           "Building construction, civil and structural works, built-environment consulting, energy infrastructure, mining civil works and O&M — Struqton's full service list.",
       },
+      { name: "keywords", content: "building construction Zimbabwe, civil engineering services Harare, solar infrastructure Zimbabwe, mining civil works" },
       { property: "og:title", content: "Services — Struqton Structural" },
       {
         property: "og:description",
         content:
           "Building, civil, consulting, energy, mining and O&M services from a single Zimbabwean contractor.",
       },
+      { property: "og:url", content: absoluteUrl("/services") },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+      { property: "og:locale", content: "en_ZW" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
   }),
   component: Services,
 });

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Building2, HardHat, Compass, Wrench, Sun, Pickaxe } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
+import { absoluteUrl, pageTitle, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { projects, statusLabels } from "@/lib/projects";
 import { PartnerCarousel } from "@/components/PartnerCarousel";
 
@@ -13,14 +14,20 @@ export const Route = createFileRoute("/")({
         content:
           "Struqton Structural is a Zimbabwean CIFOZ Category B contractor delivering residential, commercial, industrial, mining, agricultural and energy projects from concept to commissioning.",
       },
+      { name: "keywords", content: "Zimbabwe building contractor, civil engineering Zimbabwe, CIFOZ Category B, Harare construction company, mining civil works" },
       { property: "og:title", content: "Struqton Structural — Building & Civil Engineering Contractor" },
       {
         property: "og:description",
         content:
           "Zimbabwean CIFOZ Category B contractor. Residential, commercial, industrial, mining, agricultural and energy projects — concept to commissioning.",
       },
+      { property: "og:url", content: absoluteUrl("/") },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+      { property: "og:locale", content: "en_ZW" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
   }),
   component: Home,
 });

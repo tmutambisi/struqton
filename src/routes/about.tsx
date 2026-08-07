@@ -2,24 +2,31 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import aboutImg from "@/assets/about.jpg";
 import teamImg from "@/assets/team.jpg";
+import { absoluteUrl, pageTitle, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Struqton Structural" },
+      { title: pageTitle("About") },
       {
         name: "description",
         content:
           "Struqton Structural (Pvt) Ltd is a Zimbabwean CIFOZ Category B contractor, registered March 2018, delivering projects from conception through commissioning to maintenance.",
       },
+      { name: "keywords", content: "About Struqton Structural, Zimbabwe contractor team, CIFOZ contractor, Harare civil engineering" },
       { property: "og:title", content: "About Struqton Structural" },
       {
         property: "og:description",
         content:
           "Zimbabwean CIFOZ Category B building & civil engineering contractor, registered 2018.",
       },
+      { property: "og:url", content: absoluteUrl("/about") },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+      { property: "og:locale", content: "en_ZW" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/about") }],
   }),
   component: About,
 });

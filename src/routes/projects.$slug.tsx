@@ -23,6 +23,7 @@ import {
   type Project,
   type ProjectStatus,
 } from "@/lib/projects";
+import { absoluteUrl, pageTitle, buildBreadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { useState, useEffect, useCallback } from "react";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -41,16 +42,36 @@ export const Route = createFileRoute("/projects/$slug")({
       };
     }
     const p = loaderData.project;
+    const projectUrl = absoluteUrl(`/projects/${params.slug}`);
+    const imageUrl = p.image ? absoluteUrl(p.image) : absoluteUrl(DEFAULT_OG_IMAGE);
     return {
       meta: [
-        { title: `${p.title} — Struqton Structural` },
+        { title: pageTitle(p.title) },
         { name: "description", content: p.summary },
+        { name: "keywords", content: `${p.sector}, ${p.location}, ${p.client}, Zimbabwe engineering project` },
         { property: "og:title", content: `${p.title} — Struqton Structural` },
         { property: "og:description", content: p.summary },
-        { property: "og:image", content: p.image },
+        { property: "og:url", content: projectUrl },
+        { property: "og:image", content: imageUrl },
+        { property: "og:image:alt", content: p.title },
         { property: "og:type", content: "article" },
+        { property: "og:locale", content: "en_ZW" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: imageUrl },
       ],
-      links: [{ rel: "canonical", href: `/projects/${params.slug}` }],
+      links: [{ rel: "canonical", href: projectUrl }],
+      script: [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify(
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Projects", path: "/projects" },
+              { name: p.title, path: `/projects/${params.slug}` },
+            ]),
+          ),
+        },
+      ],
     };
   },
   component: ProjectDetail,

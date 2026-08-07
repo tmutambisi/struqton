@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { z } from "zod";
 import { Mail, MapPin, Phone, Clock, Linkedin, Check, AlertCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { absoluteUrl, pageTitle, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 // ─── EmailJS credentials ─────────────────────────────────────────────────────
 const EMAILJS_SERVICE_ID = "service_3wqbjfo";
@@ -12,19 +13,25 @@ const EMAILJS_PUBLIC_KEY = "LWey1HkTdySLqeOvb";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Struqton Structural" },
+      { title: pageTitle("Contact") },
       {
         name: "description",
         content:
           "Brief the Struqton Structural team on your building, civil, industrial, mining, energy or agricultural project. Office in Harare, Zimbabwe.",
       },
+      { name: "keywords", content: "contact Struqton Structural, Harare engineering contractor, Zimbabwe construction enquiry" },
       { property: "og:title", content: "Contact Struqton Structural" },
       {
         property: "og:description",
         content: "Brief our building and civil engineering team in Harare, Zimbabwe.",
       },
+      { property: "og:url", content: absoluteUrl("/contact") },
+      { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+      { property: "og:locale", content: "en_ZW" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
   component: Contact,
 });
