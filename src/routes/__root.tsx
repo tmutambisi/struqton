@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
-import { SITE_URL, absoluteUrl, DEFAULT_OG_IMAGE, ORGANIZATION_SCHEMA } from "@/lib/seo";
+import { SITE_URL, absoluteUrl, DEFAULT_OG_IMAGE, ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -111,6 +111,12 @@ function RootShell({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(ORGANIZATION_SCHEMA),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA),
           }}
         />
       </head>

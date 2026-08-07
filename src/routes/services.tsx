@@ -149,12 +149,10 @@ function Services() {
         <div className="container-page relative py-24 md:py-32">
           <p className="eyebrow">Services</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-ink md:text-6xl lg:text-7xl">
-            Concept to commissioning, under one roof.
+            Zimbabwe-based engineering services with local roots and worldwide reach.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-            Our divisions carry projects from conception, design and feasibility
-            through costing, implementation, commissioning and long-term
-            maintenance.
+            From Harare to the region and beyond, our divisions carry projects from conception, design and feasibility through costing, implementation, commissioning and long-term maintenance.
           </p>
         </div>
       </section>

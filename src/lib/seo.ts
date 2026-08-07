@@ -71,3 +71,48 @@ export const ORGANIZATION_SCHEMA = {
     "https://www.linkedin.com/company/struqtonstructural/",
   ],
 };
+
+export const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: BRAND_NAME,
+  image: absoluteUrl(DEFAULT_OG_IMAGE),
+  url: normalizedSiteUrl,
+  telephone: "+263774751861",
+  email: "info@struqton.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Shop 120-123, Longcheng Plaza, Mutley Bend, Belvedere",
+    addressLocality: "Harare",
+    addressRegion: "Harare",
+    postalCode: "",
+    addressCountry: "ZW",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "-17.8292",
+    longitude: "31.0530",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  ],
+  priceRange: "Negotiated on scope",
+  areaServed: [
+    { "@type": "Country", name: "Zimbabwe" },
+    { "@type": "Text", name: "Worldwide" },
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/struqtonstructural/",
+  ],
+};
